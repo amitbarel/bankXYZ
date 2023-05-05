@@ -13,11 +13,6 @@ public class Helper {
 	private WebDriver driver;
 	public static final String BASE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
 	
-	
-	public String getBASE_URL() {
-		return BASE_URL;
-	}
-
 
 	public Helper(WebDriver driver) {
 		this.driver = driver;

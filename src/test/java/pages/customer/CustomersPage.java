@@ -29,9 +29,9 @@ public class CustomersPage {
 		helper = new Helper(driver);
 	}
 
-	@Test
+	@Test	
 	public void testLogin() {
-		driver.get(helper.getBASE_URL() + "customer");
+		driver.get(helper + "customer");
 		driver.manage().window().maximize();
 	}
 
