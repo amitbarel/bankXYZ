@@ -39,8 +39,9 @@ public class Deposit {
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage hPage = new HomePage(driver, helper);
 		CustomersPage cPage = new CustomersPage(driver, helper);
-		String name = cPage.getRandomUser();
 		hPage.clickCustomer();
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		String name = cPage.getRandomUser();
 		cPage.chooseNameFromList(name);
 		int balanceBefore = cPage.readBalance(); 
 		cPage.deposit(amountToDeposit);
