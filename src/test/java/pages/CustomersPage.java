@@ -1,4 +1,4 @@
-package pages.customer;
+package pages;
 
 import java.io.IOException;
 
@@ -11,15 +11,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import tests.customer.Login;
+import tests.customer.Logout;
 import utils.Helper;
 
 public class CustomersPage {
 	private WebDriver driver;
 	private Helper helper;
+	private Login loginTest;
+	private Logout logoutTest;
 
 	@After
 	public void tearDown() {
-		// driver.quit();
+//		 driver.quit();
 	}
 
 	@Before
@@ -27,12 +31,18 @@ public class CustomersPage {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
+		loginTest = new Login();
+		logoutTest = new Logout();
 	}
 
-	@Test	
-	public void testLogin() {
-		driver.get(Helper.BASE_URL.concat("customer"));
-		driver.manage().window().maximize();
+	@Test
+	public void log_in_to_the_system() {
+		loginTest.testLogin();
+	}
+	
+	@Test
+	public void log_out_from_the_system() {
+		logoutTest.testLogout();
 	}
 
 	public static void main(String args[]) {
