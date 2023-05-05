@@ -26,5 +26,4 @@ public class HomePage {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		driver.findElement(managerBtn).click();
 	}
-	
 }
