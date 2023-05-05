@@ -31,7 +31,7 @@ public class ManagerPage {
 
 	@Test
 	public void testLogin() {
-		driver.get(helper.getBASE_URL() + "manager");
+		driver.get(Helper.BASE_URL.concat("manager"));
 		driver.manage().window().maximize();
 	}
 

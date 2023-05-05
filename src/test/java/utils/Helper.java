@@ -12,15 +12,13 @@ public class Helper {
 	private final int DELAY_BIG = 10000, DELAY_MEDIUM = 7500, DELAY_SMALL = 5000;
 	private WebDriver driver;
 	public static final String BASE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
-	
 
 	public Helper(WebDriver driver) {
 		this.driver = driver;
 	}
 
-
 	public ArrayList<String> usersList() {
-		driver.get(this.BASE_URL + "login");
+		driver.get(this.BASE_URL.concat("login"));
 		ArrayList<String> names = new ArrayList<String>();
 		driver.findElement(By.xpath("//button[@ng-click = 'manager()']")).click();
 		driverWait(DELAY_MEDIUM);
