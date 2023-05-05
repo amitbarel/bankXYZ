@@ -7,17 +7,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.CustomersPage;
 import pages.HomePage;
 import utils.Helper;
 
-public class Logout {
+
+public class Deposit {
+	
 	private WebDriver driver;
 	private Helper helper;
 	
@@ -34,22 +34,35 @@ public class Logout {
 	}
 	
 	@Test
-	public void testLogout() {
+	public void depositMoneyToAccount() {
+		String amountToDeposit = "7500";
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage hPage = new HomePage(driver, helper);
 		CustomersPage cPage = new CustomersPage(driver, helper);
-		hPage.clickCustomer();
-		helper.driverWait(Helper.DELAY_MEDIUM);
 		String name = cPage.getRandomUser();
+		hPage.clickCustomer();
 		cPage.chooseNameFromList(name);
-		helper.driverWait(Helper.DELAY_BIG);
-		cPage.logOut();
-		if (driver.getCurrentUrl().equals(Helper.BASE_URL.concat("customer"))) {
-			System.out.println("SUCCESS");
+		int balanceBefore = cPage.readBalance(); 
+		cPage.deposit(amountToDeposit);
+		int balanceAfter = cPage.readBalance();
+		if (balanceAfter - balanceBefore == Integer.parseInt(amountToDeposit)) {
+			System.out.println("Deposit Succeed");
 		}else {
-			System.err.println("FAILED");
+			System.err.println("Deposit Failed");
 		}
-				
 	}
+	
+	public static void main(String args[]) {
+		JUnitCore junit = new JUnitCore();
+		junit.addListener(new TextListener(System.out));
+		org.junit.runner.Result result = junit.run(Deposit.class);
 
+		if (result.getFailureCount() > 0) {
+			System.out.println("Test failed.");
+			System.exit(1);
+		} else {
+			System.out.println("Test finished successfully.");
+			System.exit(0);
+		}
+	}
 }

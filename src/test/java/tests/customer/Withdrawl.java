@@ -5,22 +5,18 @@ import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.TextListener;
-import org.junit.runner.JUnitCore;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.CustomersPage;
 import pages.HomePage;
 import utils.Helper;
 
-public class Logout {
+public class Withdrawl {
 	private WebDriver driver;
 	private Helper helper;
-	
+
 	@After
 	public void tearDown() {
 		// driver.quit();
@@ -34,22 +30,21 @@ public class Logout {
 	}
 	
 	@Test
-	public void testLogout() {
+	public void withdrawMoneyFromAccount() {
+		String amountToWithdrawl = "3500";
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage hPage = new HomePage(driver, helper);
 		CustomersPage cPage = new CustomersPage(driver, helper);
-		hPage.clickCustomer();
-		helper.driverWait(Helper.DELAY_MEDIUM);
 		String name = cPage.getRandomUser();
+		hPage.clickCustomer();
 		cPage.chooseNameFromList(name);
-		helper.driverWait(Helper.DELAY_BIG);
-		cPage.logOut();
-		if (driver.getCurrentUrl().equals(Helper.BASE_URL.concat("customer"))) {
-			System.out.println("SUCCESS");
+		int balanceBefore = cPage.readBalance();
+		cPage.withdrawl(amountToWithdrawl);
+		int balanceAfter = cPage.readBalance();
+		if (balanceBefore - balanceAfter == Integer.parseInt(amountToWithdrawl)) {
+			System.out.println("Withdrawl Succeed");
 		}else {
-			System.err.println("FAILED");
+			System.err.println("Withdrawl Failed");
 		}
-				
 	}
-
 }

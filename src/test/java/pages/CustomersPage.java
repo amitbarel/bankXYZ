@@ -1,61 +1,75 @@
 package pages;
 
-import java.io.IOException;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.internal.TextListener;
-import org.junit.runner.JUnitCore;
+import java.util.Random;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import tests.customer.Login;
-import tests.customer.Logout;
 import utils.Helper;
 
 public class CustomersPage {
 	private WebDriver driver;
 	private Helper helper;
-	private Login loginTest;
-	private Logout logoutTest;
 
-	@After
-	public void tearDown() {
-//		 driver.quit();
+	public CustomersPage(WebDriver driver, Helper helper) {
+		this.driver = driver;
+		this.helper = helper;
 	}
 
-	@Before
-	public void setUp() throws IOException {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		helper = new Helper(driver);
-		loginTest = new Login();
-		logoutTest = new Logout();
-	}
-
-	@Test
-	public void log_in_to_the_system() {
-		loginTest.testLogin();
+	By loginBtn = By.xpath("//button[@class = 'btn btn-default']");
+	By drp = By.name("userSelect");
+	By logoutBtn = By.xpath("//button[@class = 'btn logout']");
+	By transactionBtn = By.xpath("//button[@ng-click = 'transactions()']");
+	By depositBtn = By.xpath("//button[@ng-click = 'deposit()']");
+	By withdrawlBtn = By.xpath("//button[@ng-click = 'withdrawl()']");
+	By amount = By.xpath("//input[@ng-model = 'amount']");
+	By submitBtn = By.xpath("//button[@type = 'submit']");
+	By visibleName = By.xpath("//*[@class = 'fontBig ng-binding']");
+	By details = By.xpath("//strong[@class = 'ng-binding']");
+	
+	public void chooseNameFromList(String name) {
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		Select drpCharacter = new Select(driver.findElement(drp));
+		drpCharacter.selectByVisibleText(name);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(loginBtn).click();
+		helper.driverWait(Helper.DELAY_MEDIUM);
 	}
 	
-	@Test
-	public void log_out_from_the_system() {
-		logoutTest.testLogout();
+	public void logOut() {
+		driver.findElement(logoutBtn).click();
+	}
+	
+	public String getRandomUser() {
+		Select drpCharacter = new Select(driver.findElement(drp));
+		int rnd = new Random().nextInt(drpCharacter.getOptions().size());
+		return drpCharacter.getOptions().get(rnd).getText();
+	}
+	
+	public boolean verifyLogin(String name) {
+		return driver.findElement(visibleName).getText().equals(name);
+	}
+	
+	public int readBalance() {
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		return Integer.parseInt(driver.findElements(details).get(1).getText());
+		
 	}
 
-	public static void main(String args[]) {
-		JUnitCore junit = new JUnitCore();
-		junit.addListener(new TextListener(System.out));
-		org.junit.runner.Result result = junit.run(CustomersPage.class);
-
-		if (result.getFailureCount() > 0) {
-			System.out.println("Test failed.");
-			System.exit(1);
-		} else {
-			System.out.println("Test finished successfully.");
-			System.exit(0);
-		}
+	public void deposit(String amountToDeposit) {
+		driver.findElement(depositBtn).click();
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(amount).sendKeys(amountToDeposit);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(submitBtn).click();
+		helper.driverWait(Helper.DELAY_MEDIUM);
+	}
+	
+	public void withdrawl(String amountToWithdrawl) {
+		driver.findElement(withdrawlBtn).click();
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(amount).sendKeys(amountToWithdrawl);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(submitBtn).click();
 	}
 }
