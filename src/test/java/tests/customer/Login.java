@@ -1,4 +1,4 @@
-package pages.customer.tests;
+package tests.customer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,16 +73,4 @@ public class Login {
 		return names.get(rnd);
 	}
 
-	public static void main(String args[]) throws Exception {
-		JUnitCore junit = new JUnitCore();
-		junit.addListener(new TextListener(System.out));
-		org.junit.runner.Result result = junit.run(Login.class);
-		if (result.getFailureCount() > 0) {
-			System.out.println("Test failed.");
-			System.exit(1);
-		} else {
-			System.out.println("Test finished successfully.");
-			System.exit(0);
-		}
-	}
 }
