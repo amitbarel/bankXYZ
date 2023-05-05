@@ -28,9 +28,16 @@ public class Helper {
 		List<WebElement> rows = table.findElements(By.cssSelector("tr.ng-scope"));
 		List<WebElement> columns = table.findElements(By.cssSelector("td.ng-binding"));
 		for (WebElement row : rows) {
-		    List<WebElement> cells = row.findElements(By.cssSelector("td.ng-binding"));
+		    List<WebElement> cells = row.findElements(By.tagName("td"));
+		    for(WebElement test : cells) {
+		    	System.out.println(test.getText().concat("\n"));
+		    }
 		    names.add(cells.get(0).getText().concat(" "+cells.get(1).getText()));
 		}
+		
+		
+		
+		
 		return names;
 	}
 	

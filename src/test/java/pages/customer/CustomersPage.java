@@ -31,7 +31,6 @@ public class CustomersPage {
 
 	@Test	
 	public void testLogin() {
-		driver.get(helper + "customer");
 		driver.get(Helper.BASE_URL.concat("customer"));
 		driver.manage().window().maximize();
 	}
