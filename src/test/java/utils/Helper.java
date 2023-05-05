@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 public class Helper {
 	private final int DELAY_BIG = 10000, DELAY_MEDIUM = 7500, DELAY_SMALL = 5000;
 	private WebDriver driver;
-	private final String BASE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
+	public static final String BASE_URL = "https://www.globalsqa.com/angularJs-protractor/BankingProject/#/";
 	
 	
 	public String getBASE_URL() {
