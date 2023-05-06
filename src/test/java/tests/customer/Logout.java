@@ -45,9 +45,9 @@ public class Logout {
 		helper.driverWait(Helper.DELAY_BIG);
 		cPage.logOut();
 		if (driver.getCurrentUrl().equals(Helper.BASE_URL.concat("customer"))) {
-			System.out.println("SUCCESS");
+			System.out.println("Logging out succeed");
 		}else {
-			System.err.println("FAILED");
+			System.err.println("Logging out failed");
 		}
 				
 	}

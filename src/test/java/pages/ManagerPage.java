@@ -1,75 +1,141 @@
 package pages;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.internal.TextListener;
-import org.junit.runner.JUnitCore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.Helper;
 
 public class ManagerPage {
-	private final int DELAY_BIG = 10000, DELAY_MEDIUM = 7500, DELAY_SMALL = 5000;
 	private WebDriver driver;
 	private Helper helper;
-	private ArrayList<String> accounts;
 
-	@After
-	public void tearDown() {
-		// driver.quit();
+	public ManagerPage(WebDriver driver, Helper helper) {
+		this.driver = driver;
+		this.helper = helper;
 	}
 
-	@Before
-	public void setUp() throws IOException {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		helper = new Helper(driver);
-		accounts = new ArrayList();
+	By addCustomer = By.xpath("//button[@ng-click = 'addCust()']");
+	By fName = By.xpath("//input[@ng-model = 'fName']");
+	By lName = By.xpath("//input[@ng-model = 'lName']");
+	By pCode = By.xpath("//input[@ng-model = 'postCd']");
+	By openAccount = By.xpath("//button[@ng-click = 'openAccount()']");
+	By customerDrp = By.name("userSelect");
+	By currencyDrp = By.name("currency");
+	By customers = By.xpath("//button[@ng-click = 'showCust()']");
+	By submitBtn = By.xpath("//button[@type = 'submit']");
+	By deleteBtn = By.xpath("//button[@ng-click = 'deleteCust(cust)']");
+	By customersTable = By.xpath("//table[@class = 'table table-bordered table-striped']");
+	By tableRows = By.cssSelector("tr.ng-scope");
+	By tableCols = By.cssSelector("td.ng-binding");
+	By cell = By.tagName("td");
+	By searchCustomer = By.xpath("//input[@ng-model = 'searchCustomer']");
+	
+	public void clickAddCustomer() {
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(addCustomer).click();
 	}
-
-	@Test
-	public void testLogin() {
-		Map<String, ArrayList<String>> customers = new HashMap<String, ArrayList<String>>();
-		driver.get(Helper.BASE_URL.concat("manager"));
-		driver.manage().window().maximize();
-		helper.driverWait(DELAY_MEDIUM);
-		driver.findElement(By.xpath("//button[@ng-class = 'btnClass3']")).click();
-		helper.driverWait(DELAY_SMALL);
-		WebElement table = driver.findElement(By.xpath("//table[@class = 'table table-bordered table-striped']"));
-		List<WebElement> rows = table.findElements(By.cssSelector("tr.ng-scope"));
-		List<WebElement> columns = table.findElements(By.cssSelector("td.ng-binding"));
-		for (WebElement row : rows) {
-		    List<WebElement> cells = row.findElements(By.tagName("td"));
-		    String name = cells.get(0).getText().concat(" "+cells.get(1).getText());
+	
+	public void insertDetails(String f, String l, String p) {
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(fName).sendKeys(f);
+		driver.findElement(lName).sendKeys(l);
+		driver.findElement(pCode).sendKeys(p);
+		helper.driverWait(Helper.DELAY_SMALL);
+		driver.findElement(submitBtn).click();
+		helper.driverWait(Helper.DELAY_SMALL);
+	}
+	
+	public boolean isInList(String name) {
+		clickOpenAccount();
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		Select drpCustomer = new Select(driver.findElement(customerDrp));
+		List<String> customers = new ArrayList<String>();
+		for (WebElement customer: drpCustomer.getOptions()) {
+			customers.add(customer.getText());
+		}
+		return customers.contains(name);
+	}
+	
+	public boolean isInTable(String name, String number) {
+		Map<String, ArrayList<String>> customersMap = new HashMap<String, ArrayList<String>>();
+		driver.findElement(customers).click();
+		helper.driverWait(Helper.DELAY_SMALL);
+		WebElement table = driver.findElement(customersTable);
+		List<WebElement> rows = table.findElements(tableRows);
+		List<WebElement> columns = table.findElements(tableCols);
+		for (WebElement element : rows) {
+		    List<WebElement> cells = element.findElements(cell);
+		    String tempName = cells.get(0).getText().concat(" "+cells.get(1).getText());
 		    ArrayList<String> accounts = new ArrayList<String>(Arrays.asList(cells.get(3).getText().split(" ")));
-		    customers.put(name, accounts);
+		    customersMap.put(tempName, accounts);
 		}
-		System.out.println(customers.toString());
+		System.out.println(customersMap.get(name));
+		return customersMap.get(name).contains(number);
+	}
+	
+	public String getRandomUser() {
+		Select drpCharacter = new Select(driver.findElement(customerDrp));
+		int rnd = new Random().nextInt(drpCharacter.getOptions().size());
+		return drpCharacter.getOptions().get(rnd).getText();
+	}
+	
+	public void clickOpenAccount() {
+		helper.driverWait(Helper.DELAY_SMALL);
+		driver.findElement(openAccount).click();
+	}
+	
+	public void chooseDetails(String name) {
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		Select drpCustomer = new Select(driver.findElement(customerDrp));
+		drpCustomer.selectByVisibleText(name);
+		Select drpCurrency = new Select(driver.findElement(currencyDrp));
+		drpCurrency.selectByIndex(drpCurrency.getOptions().size()-1);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(submitBtn).click();
+		helper.driverWait(Helper.DELAY_SMALL);
 	}
 
-	public static void main(String args[]) {
-		JUnitCore junit = new JUnitCore();
-		junit.addListener(new TextListener(System.out));
-		org.junit.runner.Result result = junit.run(ManagerPage.class);
-
-		if (result.getFailureCount() > 0) {
-			System.out.println("Test failed.");
-			System.exit(1);
-		} else {
-			System.out.println("Test finished successfully.");
-			System.exit(0);
-		}
+	public void clickShowCustomers() {
+		driver.findElement(customers).click();
 	}
+
+	public String deleteCustomer() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		driver.findElement(customers).click();
+		helper.driverWait(Helper.DELAY_SMALL);
+		WebElement table = driver.findElement(customersTable);
+		List<WebElement> rows = table.findElements(tableRows);
+		List<WebElement> columns = table.findElements(tableCols);
+		int rnd = new Random().nextInt(rows.size());
+		List<WebElement> element = rows.get(rnd).findElements(cell);
+		System.out.println(element.get(4).getText());
+		String deleteName = element.get(0).getText().concat(" " + element.get(1).getText());
+		System.out.println(deleteName);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		element.get(4).findElement(deleteBtn).click();
+		return deleteName;
+	}
+
+//	public boolean verifyDeletionOfCustomer(String name) {
+//		helper.driverWait(Helper.DELAY_SMALL);
+//		driver.findElement(searchCustomer).sendKeys(name);
+//		helper.driverWait(Helper.DELAY_MEDIUM);
+//		WebElement table = driver.findElement(customersTable);
+//		List<WebElement> rows = table.findElements(tableRows);
+//		return rows.size()>0;
+//	}
+
 }
