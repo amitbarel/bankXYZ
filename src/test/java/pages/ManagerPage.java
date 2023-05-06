@@ -39,6 +39,10 @@ public class ManagerPage {
 	By cell = By.tagName("td");
 	By searchCustomer = By.xpath("//input[@ng-model = 'searchCustomer']");
 	
+	private By getDeleteBtnLocatorByIndex(int index) {
+		return By.xpath(".//tr["+(index)+"]/td[5]/button");
+	}
+	
 	public void clickAddCustomer() {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		driver.findElement(addCustomer).click();
@@ -109,11 +113,6 @@ public class ManagerPage {
 	}
 
 	public String deleteCustomer() {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		driver.findElement(customers).click();
 		helper.driverWait(Helper.DELAY_SMALL);
 		WebElement table = driver.findElement(customersTable);
@@ -121,13 +120,14 @@ public class ManagerPage {
 		List<WebElement> columns = table.findElements(tableCols);
 		int rnd = new Random().nextInt(rows.size());
 		List<WebElement> element = rows.get(rnd).findElements(cell);
-		System.out.println(element.get(4).getText());
 		String deleteName = element.get(0).getText().concat(" " + element.get(1).getText());
-		System.out.println(deleteName);
 		helper.driverWait(Helper.DELAY_MEDIUM);
-		element.get(4).findElement(deleteBtn).click();
+		WebElement deletedBtn = table.findElement(getDeleteBtnLocatorByIndex(rnd+1));
+		System.out.println(deletedBtn.getText());
+		deletedBtn.click();
 		return deleteName;
 	}
+
 
 //	public boolean verifyDeletionOfCustomer(String name) {
 //		helper.driverWait(Helper.DELAY_SMALL);
