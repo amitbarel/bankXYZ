@@ -34,7 +34,7 @@ public class Logout {
 	}
 	
 	@Test
-	public void testLogout() {
+	public void logOutFromSystem() {
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage hPage = new HomePage(driver, helper);
 		CustomersPage cPage = new CustomersPage(driver, helper);

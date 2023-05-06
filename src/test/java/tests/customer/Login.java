@@ -37,7 +37,7 @@ public class Login {
 	}
 	
 	@Test
-	public void testLogin() {
+	public void logInToSystem() {
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage hPage = new HomePage(driver, helper);
 		CustomersPage cPage = new CustomersPage(driver, helper);
