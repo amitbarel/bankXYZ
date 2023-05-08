@@ -36,19 +36,17 @@ public class Deposit {
 
 	@Test
 	public void depositMoneyToAccount() {
-		Logger logger = LogManager.getLogger(this);
-		logger.info("opening webiste");
 		String amountToDeposit = "7500";
 		driver.get(Helper.BASE_URL.concat("login"));
-		HomePage hPage = new HomePage(driver, helper);
-		CustomersPage cPage = new CustomersPage(driver, helper);
-		hPage.clickCustomer();
+		HomePage homePage = new HomePage(driver, helper);
+		CustomersPage customerPage = new CustomersPage(driver, helper);
+		homePage.clickCustomer();
 		helper.driverWait(Helper.DELAY_MEDIUM);
-		String name = cPage.getRandomUser();
-		cPage.chooseNameFromList(name);
-		int balanceBefore = cPage.readBalance();
-		cPage.deposit(amountToDeposit);
-		int balanceAfter = cPage.readBalance();
+		String name = customerPage.getRandomUser();
+		customerPage.chooseNameFromList(name);
+		int balanceBefore = customerPage.readBalance();
+		customerPage.deposit(amountToDeposit);
+		int balanceAfter = customerPage.readBalance();
 		if (balanceAfter - balanceBefore == Integer.parseInt(amountToDeposit)) {
 			System.out.println("Deposit Succeed");
 		} else {
