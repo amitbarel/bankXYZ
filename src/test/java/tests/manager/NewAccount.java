@@ -13,7 +13,7 @@ import pages.ManagerPage;
 import utils.Helper;
 
 public class NewAccount {
-	
+
 	private WebDriver driver;
 	private Helper helper;
 
@@ -28,7 +28,7 @@ public class NewAccount {
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
 	}
-	
+
 	@Test
 	public void openNewAccountForCustomer() {
 		driver.get(Helper.BASE_URL.concat("login"));
@@ -45,7 +45,7 @@ public class NewAccount {
 		driver.switchTo().alert().accept();
 		if (text.contains("Account created successfully") && mPage.isInTable(name, number)) {
 			System.out.println("Creating an account succeed");
-		}else {
+		} else {
 			System.err.println("Creating an account failed");
 		}
 	}

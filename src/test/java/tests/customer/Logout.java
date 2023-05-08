@@ -20,7 +20,7 @@ import utils.Helper;
 public class Logout {
 	private WebDriver driver;
 	private Helper helper;
-	
+
 	@After
 	public void tearDown() {
 		// driver.quit();
@@ -32,7 +32,7 @@ public class Logout {
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
 	}
-	
+
 	@Test
 	public void logOutFromSystem() {
 		driver.get(Helper.BASE_URL.concat("login"));
@@ -46,10 +46,10 @@ public class Logout {
 		cPage.logOut();
 		if (driver.getCurrentUrl().equals(Helper.BASE_URL.concat("customer"))) {
 			System.out.println("Logging out succeed");
-		}else {
+		} else {
 			System.err.println("Logging out failed");
 		}
-				
+
 	}
 
 }

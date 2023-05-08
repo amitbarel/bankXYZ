@@ -28,7 +28,7 @@ public class Withdrawl {
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
 	}
-	
+
 	@Test
 	public void withdrawMoneyFromAccount() {
 		String amountToWithdrawl = "3500";
@@ -44,7 +44,7 @@ public class Withdrawl {
 		int balanceAfter = cPage.readBalance();
 		if (balanceBefore - balanceAfter == Integer.parseInt(amountToWithdrawl)) {
 			System.out.println("Withdrawl Succeed");
-		}else {
+		} else {
 			System.err.println("Withdrawl Failed");
 		}
 	}

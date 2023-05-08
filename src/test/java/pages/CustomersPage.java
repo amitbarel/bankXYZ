@@ -26,7 +26,7 @@ public class CustomersPage {
 	By submitBtn = By.xpath("//button[@type = 'submit']");
 	By visibleName = By.xpath("//*[@class = 'fontBig ng-binding']");
 	By details = By.xpath("//strong[@class = 'ng-binding']");
-	
+
 	public void chooseNameFromList(String name) {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		Select drpCharacter = new Select(driver.findElement(drp));
@@ -35,25 +35,25 @@ public class CustomersPage {
 		driver.findElement(loginBtn).click();
 		helper.driverWait(Helper.DELAY_MEDIUM);
 	}
-	
+
 	public void logOut() {
 		driver.findElement(logoutBtn).click();
 	}
-	
+
 	public String getRandomUser() {
 		Select drpCharacter = new Select(driver.findElement(drp));
 		int rnd = new Random().nextInt(drpCharacter.getOptions().size());
 		return drpCharacter.getOptions().get(rnd).getText();
 	}
-	
+
 	public boolean verifyLogin(String name) {
 		return driver.findElement(visibleName).getText().equals(name);
 	}
-	
+
 	public int readBalance() {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		return Integer.parseInt(driver.findElements(details).get(1).getText());
-		
+
 	}
 
 	public void deposit(String amountToDeposit) {
@@ -64,7 +64,7 @@ public class CustomersPage {
 		driver.findElement(submitBtn).click();
 		helper.driverWait(Helper.DELAY_MEDIUM);
 	}
-	
+
 	public void withdrawl(String amountToWithdrawl) {
 		driver.findElement(withdrawlBtn).click();
 		helper.driverWait(Helper.DELAY_MEDIUM);

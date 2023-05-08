@@ -34,7 +34,6 @@ public class Helper {
 //		return names;
 //	}
 
-	
 	public void driverWait(int delay) {
 		driver.manage().timeouts().implicitlyWait(delay, TimeUnit.MILLISECONDS);
 	}

@@ -29,7 +29,7 @@ public class NewCustomer {
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
 	}
-	
+
 	@Test
 	public void insertNewCustomer() {
 		ArrayList<String> details = new ArrayList<String>() {
@@ -53,7 +53,7 @@ public class NewCustomer {
 		helper.driverWait(Helper.DELAY_SMALL);
 		if (text.contains("Customer added successfully") && mPage.isInList(name)) {
 			System.out.println("Adding a customer succeed");
-		}else {
+		} else {
 			System.err.println("Adding a customer failed");
 		}
 	}

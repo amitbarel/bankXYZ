@@ -23,7 +23,7 @@ import utils.Helper;
 public class Login {
 	private WebDriver driver;
 	private Helper helper;
-		
+
 	@After
 	public void tearDown() {
 		// driver.quit();
@@ -35,7 +35,7 @@ public class Login {
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
 	}
-	
+
 	@Test
 	public void logInToSystem() {
 		driver.get(Helper.BASE_URL.concat("login"));
@@ -47,7 +47,7 @@ public class Login {
 		cPage.chooseNameFromList(name);
 		if (cPage.verifyLogin(name)) {
 			System.out.println("Succeed");
-		}else {
+		} else {
 			System.err.println("Failed");
 		}
 	}

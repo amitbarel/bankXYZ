@@ -12,7 +12,7 @@ import pages.ManagerPage;
 import utils.Helper;
 
 public class DeleteCustomer {
-	
+
 	private WebDriver driver;
 	private Helper helper;
 
@@ -27,7 +27,7 @@ public class DeleteCustomer {
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
 	}
-	
+
 	@Test
 	public void deleteCustomer() {
 		driver.get(Helper.BASE_URL.concat("login"));
@@ -38,9 +38,9 @@ public class DeleteCustomer {
 		mPage.clickShowCustomers();
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		String deleted = mPage.deleteCustomer();
-		if(!mPage.isInList(deleted)) {
+		if (!mPage.isInList(deleted)) {
 			System.out.println("Deletion succeed");
-		}else {
+		} else {
 			System.out.println("Deletion Failed");
 		}
 	}

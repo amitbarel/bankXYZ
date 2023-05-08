@@ -17,12 +17,11 @@ import pages.CustomersPage;
 import pages.HomePage;
 import utils.Helper;
 
-
 public class Deposit {
-	
+
 	private WebDriver driver;
 	private Helper helper;
-	
+
 	@After
 	public void tearDown() {
 		// driver.quit();
@@ -34,10 +33,10 @@ public class Deposit {
 		driver = new ChromeDriver();
 		helper = new Helper(driver);
 	}
-	
+
 	@Test
 	public void depositMoneyToAccount() {
-		Logger logger=LogManager.getLogger(this);
+		Logger logger = LogManager.getLogger(this);
 		logger.info("opening webiste");
 		String amountToDeposit = "7500";
 		driver.get(Helper.BASE_URL.concat("login"));
@@ -47,16 +46,16 @@ public class Deposit {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		String name = cPage.getRandomUser();
 		cPage.chooseNameFromList(name);
-		int balanceBefore = cPage.readBalance(); 
+		int balanceBefore = cPage.readBalance();
 		cPage.deposit(amountToDeposit);
 		int balanceAfter = cPage.readBalance();
 		if (balanceAfter - balanceBefore == Integer.parseInt(amountToDeposit)) {
 			System.out.println("Deposit Succeed");
-		}else {
+		} else {
 			System.err.println("Deposit Failed");
 		}
 	}
-	
+
 	public static void main(String args[]) {
 		JUnitCore junit = new JUnitCore();
 		junit.addListener(new TextListener(System.out));
