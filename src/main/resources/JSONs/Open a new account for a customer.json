@@ -1,0 +1,22 @@
+{
+  "testCases":[
+  {
+    // Legitimate customer and currency
+    "customer": "Harry Potter",
+    "currency": "Pound"
+    "expectedOutput": {
+        "success": true
+     }
+  },
+  {
+    // Blank customer or currency
+    "customer": "Albus Dumbledore",
+    "currency": ""
+    "expectedOutput": {
+        "success": false,
+        "error: "Please select an item in the list"
+     }
+  }
+]
+}
+  

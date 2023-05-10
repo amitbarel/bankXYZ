@@ -1,0 +1,66 @@
+{
+  "testCases":[
+  {
+    // Legitimate input
+    "firstName": "Severus",
+    "lastName": "Snape",
+    "postCode": "12345"
+    "expectedOutput": {
+        "success": true
+        "name": "Severus Snape"
+     }
+  },
+  {
+    // Empty field
+    "firstName": "",
+    "lastName": "Weasley",
+    "postCode": "67890",
+    "expectedOutput": {
+        "success": false
+        "error": "Please fill out this field"
+     }
+  },
+  {
+    // Duplicate field (same lastName as previous object)
+    "firstName": "Hermoine",
+    "lastName": "Granger",
+    "postCode": "E859AB",
+    "expectedOutput": {
+        "success": false
+        "name": "Customer may be duplicate"
+     }
+  },
+  {
+    // Invalid input (space character as one of the names)
+    "firstName": " ",
+    "lastName": "Granger",
+    "postCode": "24680",
+    "expectedOutput": {
+        "success": false
+        "name": "Please check the details"
+     }
+  },
+  {
+    // Extra spaces in firstName  
+    "firstName": "Vernon   ",
+    "lastName": "Dursley",
+    "postCode": "13579",
+    "expectedOutput": {
+        "success": true
+        "name": "Vernon Dursley"
+     }
+  },
+  {
+    // Multiple names in firstName
+    "firstName": "Luna Lovegood",
+    "lastName": "          ",
+    "postCode": "45678",
+    "expectedOutput": {
+        "success": true
+        "name": needs to be changed
+     }
+  }
+]
+}
+
+  

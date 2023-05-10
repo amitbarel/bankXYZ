@@ -1,7 +1,7 @@
 {
   "testCases": [
     {
-      "description": "Deposit a positive number lower than the balance",
+      "description": "Withdraw a positive number lower than the balance",
       "input": {
         "amount": 100
       },
@@ -11,7 +11,7 @@
       }
     },
     {
-      "description": "Deposit a positive number greater than the balance",
+      "description": "Withdraw a positive number greater than the balance",
       "input": {
         "amount": 2000
       },
@@ -21,7 +21,7 @@
       }
     },
     {
-      "description": "Deposit a negative number",
+      "description": "Withdraw a negative number",
       "input": {
         "amount": -500
       },
@@ -31,7 +31,7 @@
       }
     },
     {
-      "description": "Deposit an empty value",
+      "description": "Withdraw an empty value",
       "input": {
         "amount": ""
       },
@@ -41,7 +41,7 @@
       }
     },
     {
-      "description": "Deposit letters",
+      "description": "Withdraw letters",
       "input": {
         "amount": "abc"
       },
