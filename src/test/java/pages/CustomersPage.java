@@ -13,7 +13,8 @@ import utils.Helper;
 public class CustomersPage {
 	private WebDriver driver;
 	private Helper helper;
-	private Logger logger=LogManager.getLogger(this);
+	private Logger logger = LogManager.getLogger(this);
+
 	public CustomersPage(WebDriver driver, Helper helper) {
 		this.driver = driver;
 		this.helper = helper;
@@ -31,66 +32,66 @@ public class CustomersPage {
 	By details = By.xpath("//strong[@class = 'ng-binding']");
 
 	public void chooseNameFromList(String name) {
-	    helper.driverWait(Helper.DELAY_MEDIUM);
-	    Select drpCharacter = new Select(driver.findElement(drp));
-	    drpCharacter.selectByVisibleText(name);
-	    helper.driverWait(Helper.DELAY_MEDIUM);
-	    driver.findElement(loginBtn).click();
-	    logger.info("Clicked on login button.");
-	    helper.driverWait(Helper.DELAY_MEDIUM);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		Select drpCharacter = new Select(driver.findElement(drp));
+		drpCharacter.selectByVisibleText(name);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(loginBtn).click();
+		logger.info("Clicked on login button.");
+		helper.driverWait(Helper.DELAY_MEDIUM);
 	}
 
 	public void logOut() {
-	    driver.findElement(logoutBtn).click();
-	    logger.info("Clicked on logout button.");
+		driver.findElement(logoutBtn).click();
+		logger.info("Clicked on logout button.");
 	}
 
 	public String getRandomUser() {
-	    Select drpCharacter = new Select(driver.findElement(drp));
-	    int rnd = new Random().nextInt(drpCharacter.getOptions().size());
-	    String randomUser = drpCharacter.getOptions().get(rnd).getText();
-	    logger.info("Selected random user: " + randomUser);
-	    return randomUser;
+		Select drpCharacter = new Select(driver.findElement(drp));
+		int rnd = new Random().nextInt(drpCharacter.getOptions().size());
+		String randomUser = drpCharacter.getOptions().get(rnd).getText();
+		logger.info("Selected random user: " + randomUser);
+		return randomUser;
 	}
 
 	public boolean verifyLogin(String name) {
-	    boolean isLoginSuccessful = driver.findElement(visibleName).getText().equals(name);
-	    if (isLoginSuccessful) {
-	        logger.info("Login successful for user: " + name);
-	    } else {
-	        logger.info("Login unsuccessful for user: " + name);
-	    }
-	    return isLoginSuccessful;
+		boolean isLoginSuccessful = driver.findElement(visibleName).getText().equals(name);
+		if (isLoginSuccessful) {
+			logger.info("Login successful for user: " + name);
+		} else {
+			logger.info("Login unsuccessful for user: " + name);
+		}
+		return isLoginSuccessful;
 	}
 
 	public int readBalance() {
-	    helper.driverWait(Helper.DELAY_MEDIUM);
-	    int balance = Integer.parseInt(driver.findElements(details).get(1).getText());
-	    logger.info("Read balance: " + balance);
-	    return balance;
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		int balance = Integer.parseInt(driver.findElements(details).get(1).getText());
+		logger.info("Read balance: " + balance);
+		return balance;
 	}
 
 	public void deposit(String amountToDeposit) {
-	    driver.findElement(depositBtn).click();
-	    logger.info("Clicked on deposit button.");
-	    helper.driverWait(Helper.DELAY_MEDIUM);
-	    driver.findElement(amount).sendKeys(amountToDeposit);
-	    logger.info("Entered deposit amount: " + amountToDeposit);
-	    helper.driverWait(Helper.DELAY_MEDIUM);
-	    driver.findElement(submitBtn).click();
-	    logger.info("Clicked on submit button.");
-	    helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(depositBtn).click();
+		logger.info("Clicked on deposit button.");
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(amount).sendKeys(amountToDeposit);
+		logger.info("Entered deposit amount: " + amountToDeposit);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(submitBtn).click();
+		logger.info("Clicked on submit button.");
+		helper.driverWait(Helper.DELAY_MEDIUM);
 	}
 
 	public void withdrawl(String amountToWithdrawl) {
-	    driver.findElement(withdrawlBtn).click();
-	    logger.info("Clicked on withdraw button.");
-	    helper.driverWait(Helper.DELAY_MEDIUM);
-	    driver.findElement(amount).sendKeys(amountToWithdrawl);
-	    logger.info("Entered withdrawal amount: " + amountToWithdrawl);
-	    helper.driverWait(Helper.DELAY_MEDIUM);
-	    driver.findElement(submitBtn).click();
-	    logger.info("Clicked on submit button.");
+		driver.findElement(withdrawlBtn).click();
+		logger.info("Clicked on withdraw button.");
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(amount).sendKeys(amountToWithdrawl);
+		logger.info("Entered withdrawal amount: " + amountToWithdrawl);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(submitBtn).click();
+		logger.info("Clicked on submit button.");
 	}
 
 }

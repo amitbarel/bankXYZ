@@ -11,6 +11,7 @@ public class HomePage {
 	private WebDriver driver;
 	private Helper helper;
 	private Logger logger = LogManager.getLogger(this);
+
 	public HomePage(WebDriver driver, Helper helper) {
 		this.driver = driver;
 		this.helper = helper;
