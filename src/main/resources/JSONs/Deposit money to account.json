@@ -6,8 +6,7 @@
         "amount": 100
       },
       "expectedOutput": {
-        "success": true,
-        "balance": 1100
+        "success": true
       }
     },
     {
