@@ -3,6 +3,8 @@ package tests.manager;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +19,7 @@ import utils.Helper;
 public class NewCustomer {
 	private WebDriver driver;
 	private Helper helper;
+	private Logger logger = LogManager.getLogger(getClass());
 
 	@After
 	public void tearDown() {
@@ -52,9 +55,9 @@ public class NewCustomer {
 		driver.switchTo().alert().accept();
 		helper.driverWait(Helper.DELAY_SMALL);
 		if (text.contains("Customer added successfully") && mPage.isInList(name)) {
-			System.out.println("Adding a customer succeed");
+			logger.info("Adding a customer succeed");
 		} else {
-			System.err.println("Adding a customer failed");
+			logger.error("Adding a customer failed");
 		}
 	}
 }

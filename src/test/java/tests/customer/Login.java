@@ -1,20 +1,13 @@
 package tests.customer;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.TextListener;
-import org.junit.runner.JUnitCore;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.CustomersPage;
 import pages.HomePage;
@@ -23,6 +16,7 @@ import utils.Helper;
 public class Login {
 	private WebDriver driver;
 	private Helper helper;
+	private Logger logger = LogManager.getLogger(getClass());
 
 	@After
 	public void tearDown() {
@@ -46,9 +40,9 @@ public class Login {
 		String name = cPage.getRandomUser();
 		cPage.chooseNameFromList(name);
 		if (cPage.verifyLogin(name)) {
-			System.out.println("Succeed");
+			logger.info("Succeed");
 		} else {
-			System.err.println("Failed");
+			logger.error("Failed");
 		}
 	}
 

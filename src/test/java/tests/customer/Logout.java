@@ -1,17 +1,13 @@
 package tests.customer;
 
 import java.io.IOException;
-
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.TextListener;
-import org.junit.runner.JUnitCore;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.CustomersPage;
 import pages.HomePage;
@@ -20,6 +16,7 @@ import utils.Helper;
 public class Logout {
 	private WebDriver driver;
 	private Helper helper;
+	private Logger logger = LogManager.getLogger(getClass());
 
 	@After
 	public void tearDown() {
@@ -45,9 +42,9 @@ public class Logout {
 		helper.driverWait(Helper.DELAY_BIG);
 		cPage.logOut();
 		if (driver.getCurrentUrl().equals(Helper.BASE_URL.concat("customer"))) {
-			System.out.println("Logging out succeed");
+			logger.info("Logging out succeed");
 		} else {
-			System.err.println("Logging out failed");
+			logger.error("Logging out failed");
 		}
 
 	}

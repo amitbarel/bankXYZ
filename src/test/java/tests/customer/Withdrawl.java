@@ -2,6 +2,8 @@ package tests.customer;
 
 import java.io.IOException;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,10 +18,11 @@ import utils.Helper;
 public class Withdrawl {
 	private WebDriver driver;
 	private Helper helper;
+	private Logger logger = LogManager.getLogger(getClass());
 
 	@After
 	public void tearDown() {
-		// driver.quit();
+		 driver.quit();
 	}
 
 	@Before
@@ -43,9 +46,9 @@ public class Withdrawl {
 		cPage.withdrawl(amountToWithdrawl);
 		int balanceAfter = cPage.readBalance();
 		if (balanceBefore - balanceAfter == Integer.parseInt(amountToWithdrawl)) {
-			System.out.println("Withdrawl Succeed");
+			logger.info("Withdrawl Succeed");
 		} else {
-			System.err.println("Withdrawl Failed");
+			logger.error("Withdrawl Failed");
 		}
 	}
 }

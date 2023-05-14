@@ -1,6 +1,9 @@
 package tests.manager;
 
 import java.io.IOException;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +19,7 @@ public class NewAccount {
 
 	private WebDriver driver;
 	private Helper helper;
+	private Logger logger = LogManager.getLogger(getClass());
 
 	@After
 	public void tearDown() {
@@ -44,9 +48,9 @@ public class NewAccount {
 		number.trim();
 		driver.switchTo().alert().accept();
 		if (text.contains("Account created successfully") && mPage.isInCustomersTable(name, number)) {
-			System.out.println("Creating an account succeed");
+			logger.info("Creating an account succeed");
 		} else {
-			System.err.println("Creating an account failed");
+			logger.error("Creating an account failed");
 		}
 	}
 }

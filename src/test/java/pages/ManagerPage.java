@@ -3,6 +3,7 @@ package pages;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -79,16 +80,14 @@ public class ManagerPage {
 
 	public boolean isInCustomersTable(String name, String number) {
 		logger.debug("Checking if customer " + name + " with account number " + number + " is in the table");
-		Map<String, ArrayList<String>> customersMap = new HashMap<String, ArrayList<String>>();
-		List<WebElement> rows = readCustomersTable();
-		for (WebElement element : rows) {
-			List<WebElement> cells = element.findElements(cell);
-			String tempName = cells.get(0).getText().concat(" " + cells.get(1).getText());
-			ArrayList<String> accounts = new ArrayList<String>(Arrays.asList(cells.get(3).getText().split(" ")));
-			customersMap.put(tempName, accounts);
+		ArrayList<Customer> customers = getCustomersFromTable();
+		for (Customer c: customers) {
+			if (c.getfName().concat(" " + c.getlName()).equals(name)) {
+				logger.debug("Accounts for customer " + name + ": " + c.getAccounts());
+				return c.getAccounts().contains(number);				
+			}
 		}
-		logger.debug("Accounts for customer " + name + ": " + customersMap.get(name));
-		return customersMap.get(name).contains(number);
+		return false;
 	}
 
 	private List<WebElement> readCustomersTable() {
@@ -155,7 +154,7 @@ public class ManagerPage {
 				c.setfName(cells.get(0).getText());
 				c.setlName(cells.get(1).getText());
 				c.setPostCode(cells.get(2).getText());
-				c.setAccounts((ArrayList<String>)Arrays.asList(cells.get(3).getText().split(" ")));
+				c.setAccounts(Arrays.asList(cells.get(3).getText().split(" ")));
 				customers.add(c);
 			}
 		}

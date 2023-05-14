@@ -1,6 +1,8 @@
 package tests.manager;
 
 import java.io.IOException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +17,7 @@ public class DeleteCustomer {
 
 	private WebDriver driver;
 	private Helper helper;
+	private Logger logger = LogManager.getLogger(this);
 
 	@After
 	public void tearDown() {
@@ -39,9 +42,9 @@ public class DeleteCustomer {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		String deleted = mPage.deleteCustomer();
 		if (!mPage.isInList(deleted)) {
-			System.out.println("Deletion succeed");
+			logger.info("Deletion succeed");
 		} else {
-			System.out.println("Deletion Failed");
+			logger.error("Deletion Failed");
 		}
 	}
 }

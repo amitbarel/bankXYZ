@@ -21,6 +21,7 @@ public class Deposit {
 
 	private WebDriver driver;
 	private Helper helper;
+	private Logger logger = LogManager.getLogger(this);
 
 	@After
 	public void tearDown() {
@@ -48,23 +49,10 @@ public class Deposit {
 		customerPage.deposit(amountToDeposit);
 		int balanceAfter = customerPage.readBalance();
 		if (balanceAfter - balanceBefore == Integer.parseInt(amountToDeposit)) {
-			System.out.println("Deposit Succeed");
+			logger.info("Deposit Succeed");
 		} else {
-			System.err.println("Deposit Failed");
+			logger.error("Deposit Failed");
 		}
 	}
 
-	public static void main(String args[]) {
-		JUnitCore junit = new JUnitCore();
-		junit.addListener(new TextListener(System.out));
-		org.junit.runner.Result result = junit.run(Deposit.class);
-
-		if (result.getFailureCount() > 0) {
-			System.out.println("Test failed.");
-			System.exit(1);
-		} else {
-			System.out.println("Test finished successfully.");
-			System.exit(0);
-		}
-	}
 }

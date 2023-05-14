@@ -1,14 +1,13 @@
 package utils;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 public class Customer {
 	
 	private String fName;
 	private String lName;
 	private String postCode;
-	private ArrayList<String> accounts;
+	private List<String> accounts;
 	
 	public String getfName() {
 		return fName;
@@ -34,11 +33,11 @@ public class Customer {
 		this.postCode = postCode;
 	}
 
-	public ArrayList<String> getAccounts() {
+	public List<String> getAccounts() {
 		return accounts;
 	}
 
-	public void setAccounts(ArrayList<String> accounts) {
+	public void setAccounts(List<String> accounts) {
 		this.accounts = accounts;
 	}
 	
