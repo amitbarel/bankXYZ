@@ -26,11 +26,8 @@
   },
   {
     // Empty input
-    "input": "",
-    "expectedOutput": {
-        "success": false
-        //"name": all table will remain the same
-     }
+    "input": "     ",
+    "expectedOutput": null
   },
   {
     // Spaces and then text  

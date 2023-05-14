@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import utils.Customer;
 import utils.Helper;
 
 public class ManagerPage {
@@ -76,14 +77,10 @@ public class ManagerPage {
 		return customers.contains(name);
 	}
 
-	public boolean isInTable(String name, String number) {
+	public boolean isInCustomersTable(String name, String number) {
 		logger.debug("Checking if customer " + name + " with account number " + number + " is in the table");
 		Map<String, ArrayList<String>> customersMap = new HashMap<String, ArrayList<String>>();
-		driver.findElement(customers).click();
-		helper.driverWait(Helper.DELAY_SMALL);
-		WebElement table = driver.findElement(customersTable);
-		List<WebElement> rows = table.findElements(tableRows);
-		List<WebElement> columns = table.findElements(tableCols);
+		List<WebElement> rows = readCustomersTable();
 		for (WebElement element : rows) {
 			List<WebElement> cells = element.findElements(cell);
 			String tempName = cells.get(0).getText().concat(" " + cells.get(1).getText());
@@ -92,6 +89,14 @@ public class ManagerPage {
 		}
 		logger.debug("Accounts for customer " + name + ": " + customersMap.get(name));
 		return customersMap.get(name).contains(number);
+	}
+
+	private List<WebElement> readCustomersTable() {
+		driver.findElement(customers).click();
+		helper.driverWait(Helper.DELAY_SMALL);
+		WebElement table = driver.findElement(customersTable);
+		List<WebElement> rows = table.findElements(tableRows);
+		return rows;
 	}
 
 	public String getRandomUser() {
@@ -129,28 +134,38 @@ public class ManagerPage {
 
 	public String deleteCustomer() {
 		Logger logger = LogManager.getLogger(getClass());
-		driver.findElement(customers).click();
-		helper.driverWait(Helper.DELAY_SMALL);
-		WebElement table = driver.findElement(customersTable);
-		List<WebElement> rows = table.findElements(tableRows);
-		List<WebElement> columns = table.findElements(tableCols);
+		List<WebElement> rows = readCustomersTable();
 		int rnd = new Random().nextInt(rows.size());
 		List<WebElement> element = rows.get(rnd).findElements(cell);
 		String deleteName = element.get(0).getText().concat(" " + element.get(1).getText());
 		helper.driverWait(Helper.DELAY_MEDIUM);
-		WebElement deletedBtn = table.findElement(getDeleteBtnLocatorByIndex(rnd + 1));
+		WebElement deletedBtn = driver.findElement(customersTable).findElement(getDeleteBtnLocatorByIndex(rnd + 1));
 		logger.info("Clicked Delete button for customer: " + deleteName);
 		deletedBtn.click();
 		return deleteName;
 	}
+	
+	public ArrayList<Customer> getCustomersFromTable(){
+		ArrayList<Customer> customers = new ArrayList<Customer>();
+		List<WebElement> rows = readCustomersTable();
+		for (int i = 0; i < rows.size(); i++) {
+			for (WebElement element : rows) {
+				Customer c = new Customer();
+				List<WebElement> cells = element.findElements(cell);
+				c.setfName(cells.get(0).getText());
+				c.setlName(cells.get(1).getText());
+				c.setPostCode(cells.get(2).getText());
+				c.setAccounts((ArrayList<String>)Arrays.asList(cells.get(3).getText().split(" ")));
+				customers.add(c);
+			}
+		}
+		return customers;		
+	}
 
-//	public boolean verifyDeletionOfCustomer(String name) {
-//		helper.driverWait(Helper.DELAY_SMALL);
-//		driver.findElement(searchCustomer).sendKeys(name);
-//		helper.driverWait(Helper.DELAY_MEDIUM);
-//		WebElement table = driver.findElement(customersTable);
-//		List<WebElement> rows = table.findElements(tableRows);
-//		return rows.size()>0;
-//	}
-
+	public void searchDetails(String input) {
+		logger.debug("Searching for customer details: " + input);
+		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(searchCustomer).sendKeys(input);
+		helper.driverWait(Helper.DELAY_SMALL);
+	}
 }
