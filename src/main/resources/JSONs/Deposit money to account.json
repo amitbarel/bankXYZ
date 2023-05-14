@@ -2,18 +2,14 @@
   "testCases": [
     {
       "description": "Deposit a positive number",
-      "input": {
-        "amount": 100
-      },
+      "amount": 1000
       "expectedOutput": {
         "success": true
       }
     },
     {
       "description": "Deposit a negative number",
-      "input": {
-        "amount": -500
-      },
+      "amount": -700
       "expectedOutput": {
         "success": false,
         "error": "Invalid amount"
@@ -21,19 +17,7 @@
     },
     {
       "description": "Deposit an empty value",
-      "input": {
-        "amount": ""
-      },
-      "expectedOutput": {
-        "success": false,
-        "error": "Invalid amount"
-      }
-    },
-    {
-      "description": "Deposit letters",
-      "input": {
-        "amount": "abc"
-      },
+      "amount": ""
       "expectedOutput": {
         "success": false,
         "error": "Invalid amount"

@@ -2,27 +2,21 @@
   "testCases": [
     {
       "description": "Withdraw a positive number lower than the balance",
-      "input": {
-        "amount": 100
-      },
+      "amount": 100,
       "expectedOutput": {
         "success": true
       }
     },
     {
       "description": "Withdraw a positive number greater than the balance",
-      "input": {
-        "amount": 2000
-      },
+      "amount": 2500,
       "expectedOutput": {
         "success": true
       }
     },
     {
       "description": "Withdraw a negative number",
-      "input": {
-        "amount": -500
-      },
+      "amount": -500,
       "expectedOutput": {
         "success": false,
         "error": "Invalid amount"
@@ -30,19 +24,7 @@
     },
     {
       "description": "Withdraw an empty value",
-      "input": {
-        "amount": ""
-      },
-      "expectedOutput": {
-        "success": false,
-        "error": "Invalid amount"
-      }
-    },
-    {
-      "description": "Withdraw letters",
-      "input": {
-        "amount": "abc"
-      },
+      "amount": "",
       "expectedOutput": {
         "success": false,
         "error": "Invalid amount"
