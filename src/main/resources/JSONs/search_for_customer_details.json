@@ -1,39 +1,34 @@
 {
   "testCases":[
   {
-    // Full first/last name or post code
     "input": "Harry",
     "expectedOutput": {
-        "success": true
+        "success": true,
         "name": "Harry Potter"
      }
   },
   {
-    // Existing account number
     "input": "1003",
     "expectedOutput": {
-        "success": true
+        "success": true,
         "name": "Hermoine Granger"
      }
   },
   {
-    // Substring of one of the details
     "input": "Pot",
     "expectedOutput": {
-        "success": true
+        "success": true,
         "name": "Harry Potter"
      }
   },
   {
-    // Empty input
-    "input": "     ",
+   "input": "     ",
     "expectedOutput": null
   },
   {
-    // Spaces and then text  
     "input": "    Ro",
     "expectedOutput": {
-        "success": true
+        "success": true,
         "name": "Ron Weasly"
      }
   }

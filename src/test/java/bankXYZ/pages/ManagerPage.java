@@ -173,4 +173,8 @@ public class ManagerPage {
 		driver.findElement(searchCustomer).sendKeys(input);
 		helper.driverWait(Helper.DELAY_SMALL);
 	}
+	
+	public void clearSearchCustomerInput() {
+		driver.findElement(searchCustomer).clear();
+	}
 }

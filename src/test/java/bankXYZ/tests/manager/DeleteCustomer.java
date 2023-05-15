@@ -34,14 +34,14 @@ public class DeleteCustomer {
 	@Test
 	public void deleteCustomer() {
 		driver.get(Helper.BASE_URL.concat("login"));
-		HomePage hPage = new HomePage(driver, helper);
-		ManagerPage mPage = new ManagerPage(driver, helper);
-		hPage.clickManager();
+		HomePage homePage = new HomePage(driver, helper);
+		ManagerPage managerPage = new ManagerPage(driver, helper);
+		homePage.clickManager();
 		helper.driverWait(Helper.DELAY_MEDIUM);
-		mPage.clickShowCustomers();
+		managerPage.clickShowCustomers();
 		helper.driverWait(Helper.DELAY_MEDIUM);
-		String deleted = mPage.deleteCustomer();
-		if (!mPage.isInList(deleted)) {
+		String deleted = managerPage.deleteCustomer();
+		if (!managerPage.isInList(deleted)) {
 			logger.info("Deletion succeed");
 		} else {
 			logger.error("Deletion Failed");

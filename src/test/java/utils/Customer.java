@@ -41,6 +41,12 @@ public class Customer {
 		this.accounts = accounts;
 	}
 	
+	@Override
+	public String toString() {
+		return "Customer [fName=" + fName + ", lName=" + lName + ", postCode=" + postCode + ", accounts=" + accounts
+				+ "]";
+	}
+
 	public boolean isSubstringExists(String sub) {
 		boolean nameExists, accountExists = false;
 		nameExists = this.fName.contains(sub) || this.lName.equals(sub) || this.postCode.contains(sub);

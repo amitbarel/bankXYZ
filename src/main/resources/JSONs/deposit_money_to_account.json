@@ -2,17 +2,17 @@
   "testCases":[
     {
       "description": "Deposit a positive number",
-      "amount": "1000"
+      "amount": "1000",
       "expectedOutput": true
     },
     {
       "description": "Deposit a negative number",
-      "amount": "-700"
+      "amount": "-700",
       "expectedOutput": false
     },
     {
       "description": "Deposit an empty value",
-      "amount": ""
+      "amount": "",
       "expectedOutput": true
     }
   ]

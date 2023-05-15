@@ -3,7 +3,7 @@
   {
     "firstName": "Severus",
     "lastName": "Snape",
-    "postCode": "1A2B3C"
+    "postCode": "1A2B3C",
     "expectedOutput": "Customer added successfully with customer id"
   },
   {
