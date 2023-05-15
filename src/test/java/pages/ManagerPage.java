@@ -28,6 +28,7 @@ public class ManagerPage {
 		this.helper = helper;
 	}
 
+	By home = By.xpath("//button[@ng-click = 'home()']");
 	By addCustomer = By.xpath("//button[@ng-click = 'addCust()']");
 	By fName = By.xpath("//input[@ng-model = 'fName']");
 	By lName = By.xpath("//input[@ng-model = 'lName']");
@@ -43,19 +44,25 @@ public class ManagerPage {
 	By tableCols = By.cssSelector("td.ng-binding");
 	By cell = By.tagName("td");
 	By searchCustomer = By.xpath("//input[@ng-model = 'searchCustomer']");
+	
 
 	private By getDeleteBtnLocatorByIndex(int index) {
 		logger.debug("Getting delete button locator by index " + index);
 		return By.xpath(".//tr[" + (index) + "]/td[5]/button");
 	}
 
+	public void goToHomePage() {
+		driver.findElement(home).click();
+		helper.driverWait(Helper.DELAY_MEDIUM);
+	}
+	
 	public void clickAddCustomer() {
 		logger.debug("Clicking add customer button");
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		driver.findElement(addCustomer).click();
 	}
 
-	public void insertDetails(String f, String l, String p) {
+	public void addNewCustomer(String f, String l, String p) {
 		logger.debug("Inserting customer details: first name = " + f + ", last name = " + l + ", postal code = " + p);
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		driver.findElement(fName).sendKeys(f);
@@ -111,12 +118,12 @@ public class ManagerPage {
 		driver.findElement(openAccount).click();
 	}
 
-	public void chooseDetails(String name) {
+	public void openAccountForCustomer(String fullname) {
 		Logger logger = LogManager.getLogger(getClass());
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		Select drpCustomer = new Select(driver.findElement(customerDrp));
-		drpCustomer.selectByVisibleText(name);
-		logger.info("Selected customer: " + name);
+		drpCustomer.selectByVisibleText(fullname);
+		logger.info("Selected customer: " + fullname);
 		Select drpCurrency = new Select(driver.findElement(currencyDrp));
 		drpCurrency.selectByIndex(drpCurrency.getOptions().size() - 1);
 		helper.driverWait(Helper.DELAY_MEDIUM);

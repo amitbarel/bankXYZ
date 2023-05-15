@@ -10,6 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.CustomersPage;
 import pages.HomePage;
@@ -21,7 +24,6 @@ public class Deposit {
 	private WebDriver driver;
 	private Helper helper;
 	private Logger logger = LogManager.getLogger(this);
-	private JSONUtils jsonUtils;
 
 	@After
 	public void tearDown() {
@@ -37,8 +39,8 @@ public class Deposit {
 
 	@Test
 	public void depositMoneyToAccount() {
-		JSONArray jArray = (JSONArray) jsonUtils
-				.getDetailsFromJson("/Xyz/src/main/resources/JSONs/Deposit money to account.json").get("testCases");
+		JSONArray jArray = (JSONArray) JSONUtils
+				.getDetailsFromJson(".\\src\\main\\resources\\JSONs\\deposit_money_to_account.json").get("testCases");
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage homePage = new HomePage(driver, helper);
 		CustomersPage customerPage = new CustomersPage(driver, helper);
@@ -46,17 +48,20 @@ public class Deposit {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		String name = customerPage.getRandomUser();
 		customerPage.chooseNameFromList(name);
-		int balanceBefore = customerPage.readBalance();
 		for (int i = 0; i < jArray.size(); i++) {
+			int balanceBefore = customerPage.readBalance();
 			JSONObject customer = (JSONObject) jArray.get(i);
 			String amountToDeposit = (String) customer.get("amount");
-//			JSONArray expectedResult = (JSONArray) customer.get("expectedOutput");
+			boolean expected = (Boolean) customer.get("expectedOutput");
 			customerPage.deposit(amountToDeposit);
 			int balanceAfter = customerPage.readBalance();
-			if (balanceAfter - balanceBefore == Integer.parseInt(amountToDeposit))
-				logger.info("Deposit Succeed");
+			if (amountToDeposit.isEmpty()) 
+				amountToDeposit = "0";
+			boolean isBalanceValid = (balanceAfter - balanceBefore == Integer.parseInt(amountToDeposit));
+			if (isBalanceValid == expected)
+				logger.info("Deposit test went as expected");
 			else
-				logger.error("Deposit Failed");
+				logger.error("Deposit test did not go as expected");
 		}
 	}
 }

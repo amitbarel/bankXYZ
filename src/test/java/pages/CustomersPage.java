@@ -48,7 +48,7 @@ public class CustomersPage {
 
 	public String getRandomUser() {
 		Select drpCharacter = new Select(driver.findElement(drp));
-		int rnd = new Random().nextInt(drpCharacter.getOptions().size());
+		int rnd = new Random().nextInt(drpCharacter.getOptions().size()-1)+1;
 		String randomUser = drpCharacter.getOptions().get(rnd).getText();
 		logger.info("Selected random user: " + randomUser);
 		return randomUser;
@@ -81,6 +81,7 @@ public class CustomersPage {
 		driver.findElement(submitBtn).click();
 		logger.info("Clicked on submit button.");
 		helper.driverWait(Helper.DELAY_MEDIUM);
+		driver.findElement(amount).clear();
 	}
 
 	public void withdrawl(String amountToWithdrawl) {

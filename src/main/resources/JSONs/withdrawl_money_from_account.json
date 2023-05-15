@@ -1,0 +1,40 @@
+{
+  "testCases": [
+    {
+      "description": "Withdraw a positive number lower than the balance",
+      "firstName":"Avi",
+      "lastName":"Cohen",
+      "postCode":"1A2S2D3",
+      "toDeposit": "350",
+      "toWithdraw": "100",
+      "expectedOutput": "250"
+    },
+    {
+      "description": "Withdraw a positive number greater than the balance",
+      "firstName":"Yossi",
+      "lastName":"Levi",
+      "postCode":"9B6S3D2",
+      "toDeposit": "350",
+      "toWithdraw": "700",
+      "expectedOutput": "350"
+    },
+    {
+      "description": "Withdraw a negative number",
+      "firstName":"Moshe",
+      "lastName":"Moshe",
+      "postCode":"2A2E4D3",
+      "toDeposit": "350",
+      "toWithdraw": "-500",
+      "expectedOutput": "350"
+    },
+    {
+      "description": "Withdraw an empty value",
+      "firstName":"Benny",
+      "lastName":"Cohen",
+      "postCode":"2A2E0W3",
+      "toDeposit": "350",
+      "toWithdraw": "",
+      "expectedOutput": "350"
+    }
+  ]
+}

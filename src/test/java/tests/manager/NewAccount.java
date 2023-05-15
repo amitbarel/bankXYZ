@@ -1,7 +1,6 @@
 package tests.manager;
 
 import java.io.IOException;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -9,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
 import pages.ManagerPage;
@@ -19,7 +17,7 @@ public class NewAccount {
 
 	private WebDriver driver;
 	private Helper helper;
-	private Logger logger = LogManager.getLogger(getClass());
+	private Logger logger = LogManager.getLogger(this.getClass());
 
 	@After
 	public void tearDown() {
@@ -42,7 +40,7 @@ public class NewAccount {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		mPage.clickOpenAccount();
 		String name = mPage.getRandomUser();
-		mPage.chooseDetails(name);
+		mPage.openAccountForCustomer(name);
 		String text = driver.switchTo().alert().getText();
 		String number = text.substring(text.indexOf(":") + 1);
 		number.trim();

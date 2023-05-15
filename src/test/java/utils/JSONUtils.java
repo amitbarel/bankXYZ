@@ -6,7 +6,7 @@ import org.json.simple.parser.JSONParser;
 
 public class JSONUtils {
 
-	public JSONObject getDetailsFromJson(String jsonPath) {
+	public static JSONObject getDetailsFromJson(String jsonPath) {
 		Object obj = null;
 		JSONParser jsonParser = new JSONParser();
 		try {

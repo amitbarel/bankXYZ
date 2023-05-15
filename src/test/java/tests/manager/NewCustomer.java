@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +17,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.HomePage;
 import pages.ManagerPage;
 import utils.Helper;
+import utils.JSONUtils;
 
 public class NewCustomer {
 	private WebDriver driver;
@@ -35,29 +38,29 @@ public class NewCustomer {
 
 	@Test
 	public void insertNewCustomer() {
-		ArrayList<String> details = new ArrayList<String>() {
-			{
-				add("Amit");
-				add("Barel");
-				add("2A3C3D");
-			}
-		};
+		JSONArray jArray = (JSONArray) JSONUtils
+				.getDetailsFromJson(".\\src\\main\\resources\\JSONs\\insert_new_customer.json").get("testCases");
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage hPage = new HomePage(driver, helper);
 		ManagerPage mPage = new ManagerPage(driver, helper);
 		hPage.clickManager();
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		mPage.clickAddCustomer();
-		mPage.insertDetails(details.get(0), details.get(1), details.get(2));
-		String name = details.get(0).concat(" " + details.get(1));
-		helper.driverWait(Helper.DELAY_SMALL);
-		String text = driver.switchTo().alert().getText();
-		driver.switchTo().alert().accept();
-		helper.driverWait(Helper.DELAY_SMALL);
-		if (text.contains("Customer added successfully") && mPage.isInList(name)) {
-			logger.info("Adding a customer succeed");
-		} else {
-			logger.error("Adding a customer failed");
+		for (int i = 0; i< jArray.size(); i++) {
+			JSONObject jsonObject = (JSONObject) jArray.get(i);
+			String firstName = (String) jsonObject.get("firstName");
+			String lastName = (String) jsonObject.get("lastName");
+			String postCode = (String) jsonObject.get("postCode");
+			mPage.addNewCustomer(firstName, lastName, postCode);
+			helper.driverWait(Helper.DELAY_SMALL);
+			String text = driver.switchTo().alert().getText();
+			driver.switchTo().alert().accept();
+			helper.driverWait(Helper.DELAY_SMALL);
+			if (text.contains((String)jsonObject.get("expectedOutput"))) {
+				logger.info("Adding a customer test succeed");
+			} else {
+				logger.error("Adding a customer test failed");
+			}
 		}
 	}
 }
