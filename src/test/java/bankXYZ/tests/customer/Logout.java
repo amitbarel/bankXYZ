@@ -1,4 +1,4 @@
-package tests.customer;
+package bankXYZ.tests.customer;
 
 import java.io.IOException;
 import org.apache.log4j.LogManager;
@@ -9,11 +9,11 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pages.CustomersPage;
-import pages.HomePage;
+import bankXYZ.pages.CustomersPage;
+import bankXYZ.pages.HomePage;
 import utils.Helper;
 
-public class Login {
+public class Logout {
 	private WebDriver driver;
 	private Helper helper;
 	private Logger logger = LogManager.getLogger(getClass());
@@ -31,7 +31,7 @@ public class Login {
 	}
 
 	@Test
-	public void logInToSystem() {
+	public void logOutFromSystem() {
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage hPage = new HomePage(driver, helper);
 		CustomersPage cPage = new CustomersPage(driver, helper);
@@ -39,11 +39,14 @@ public class Login {
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		String name = cPage.getRandomUser();
 		cPage.chooseNameFromList(name);
-		if (cPage.verifyLogin(name)) {
-			logger.info("Succeed");
+		helper.driverWait(Helper.DELAY_BIG);
+		cPage.logOut();
+		if (driver.getCurrentUrl().equals(Helper.BASE_URL.concat("customer"))) {
+			logger.info("Logging out succeed");
 		} else {
-			logger.error("Failed");
+			logger.error("Logging out failed");
 		}
+
 	}
 
 }

@@ -1,35 +1,30 @@
 {
   "testCases":[
   {
-    // Legitimate input
     "firstName": "Severus",
     "lastName": "Snape",
     "postCode": "1A2B3C"
     "expectedOutput": "Customer added successfully with customer id"
   },
   {
-    // Duplicate field (same lastName as previous object)
     "firstName": "Hermoine",
     "lastName": "Granger",
     "postCode": "E859AB",
     "expectedOutput": "Please check the details. Customer may be duplicate."
   },
   {
-    // Invalid input (space character as one of the names)
     "firstName": " ",
     "lastName": "Granger",
     "postCode": "24680",
     "expectedOutput": "Please check the details. Customer may be duplicate."
   },
   {
-    // Extra spaces in firstName  
     "firstName": "Vernon   ",
     "lastName": "Dursley",
     "postCode": "13579",
     "expectedOutput": "Customer added successfully with customer id"
   },
   {
-    // Multiple names in firstName
     "firstName": "Luna Lovegood",
     "lastName": "          ",
     "postCode": "45678",

@@ -3,3 +3,16 @@
 [INFO ] 2023-05-15 16:00:40.447 [main] Deposit - Deposit test went as expected
 [INFO ] 2023-05-15 16:00:40.709 [main] Deposit - Deposit test went as expected
 [INFO ] 2023-05-15 16:00:41.029 [main] Deposit - Deposit test went as expected
+[INFO ] 2023-05-15 17:20:38.404 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-15 17:20:38.415 [main] HomePage - Clicking on manager button...
+[DEBUG] 2023-05-15 17:20:38.489 [main] ManagerPage - Clicking add customer button
+[DEBUG] 2023-05-15 17:20:38.799 [main] ManagerPage - Inserting customer details: first name = Severus, last name = Snape, postal code = 1A2B3C
+[DEBUG] 2023-05-15 17:20:39.468 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-15 17:20:39.494 [main] ManagerPage - Inserting customer details: first name = Hermoine, last name = Granger, postal code = E859AB
+[DEBUG] 2023-05-15 17:20:39.779 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-15 17:20:39.799 [main] ManagerPage - Inserting customer details: first name =  , last name = Granger, postal code = 24680
+[DEBUG] 2023-05-15 17:20:40.049 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-15 17:20:40.066 [main] ManagerPage - Inserting customer details: first name = Vernon   , last name = Dursley, postal code = 13579
+[DEBUG] 2023-05-15 17:20:40.422 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-15 17:20:40.441 [main] ManagerPage - Inserting customer details: first name = Luna Lovegood, last name =           , postal code = 45678
+[DEBUG] 2023-05-15 17:20:40.737 [main] ManagerPage - Submitted customer details

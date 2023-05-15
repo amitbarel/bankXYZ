@@ -1,4 +1,4 @@
-package tests.customer;
+package bankXYZ.tests.customer;
 
 import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
@@ -10,12 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-import pages.CustomersPage;
-import pages.HomePage;
+import bankXYZ.pages.CustomersPage;
+import bankXYZ.pages.HomePage;
 import utils.Helper;
 import utils.JSONUtils;
 

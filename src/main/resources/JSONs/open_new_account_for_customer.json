@@ -1,21 +1,12 @@
 {
   "testCases":[
   {
-    // Legitimate customer and currency
-    "customer": "Harry Potter",
-    "currency": "Pound"
-    "expectedOutput": {
-        "success": true
-     }
+    "fullName": "Harry Potter",
+    "expectedOutput": "Account created successfully with account Number"
   },
   {
-    // Blank customer or currency
-    "customer": "Albus Dumbledore",
-    "currency": ""
-    "expectedOutput": {
-        "success": false,
-        "error: "Please select an item in the list"
-     }
+    "fullName": "Albus Dumbledore",
+    "expectedOutput": "Please select an item in the list"
   }
 ]
 }

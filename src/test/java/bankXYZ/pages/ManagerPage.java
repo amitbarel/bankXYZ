@@ -1,4 +1,4 @@
-package pages;
+package bankXYZ.pages;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -119,7 +119,6 @@ public class ManagerPage {
 	}
 
 	public void openAccountForCustomer(String fullname) {
-		Logger logger = LogManager.getLogger(getClass());
 		helper.driverWait(Helper.DELAY_MEDIUM);
 		Select drpCustomer = new Select(driver.findElement(customerDrp));
 		drpCustomer.selectByVisibleText(fullname);

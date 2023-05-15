@@ -1,4 +1,4 @@
-package pages;
+package bankXYZ.pages;
 
 import java.util.Random;
 
