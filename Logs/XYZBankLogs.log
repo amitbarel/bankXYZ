@@ -1,18 +1,22 @@
-[INFO ] 2023-05-15 15:58:53.841 [main] Deposit - Deposit test went as expected
-[INFO ] 2023-05-15 15:58:54.082 [main] Deposit - Deposit test went as expected
-[INFO ] 2023-05-15 16:00:40.447 [main] Deposit - Deposit test went as expected
-[INFO ] 2023-05-15 16:00:40.709 [main] Deposit - Deposit test went as expected
-[INFO ] 2023-05-15 16:00:41.029 [main] Deposit - Deposit test went as expected
-[INFO ] 2023-05-15 17:20:38.404 [main] HomePage - Waiting for driver...
-[INFO ] 2023-05-15 17:20:38.415 [main] HomePage - Clicking on manager button...
-[DEBUG] 2023-05-15 17:20:38.489 [main] ManagerPage - Clicking add customer button
-[DEBUG] 2023-05-15 17:20:38.799 [main] ManagerPage - Inserting customer details: first name = Severus, last name = Snape, postal code = 1A2B3C
-[DEBUG] 2023-05-15 17:20:39.468 [main] ManagerPage - Submitted customer details
-[DEBUG] 2023-05-15 17:20:39.494 [main] ManagerPage - Inserting customer details: first name = Hermoine, last name = Granger, postal code = E859AB
-[DEBUG] 2023-05-15 17:20:39.779 [main] ManagerPage - Submitted customer details
-[DEBUG] 2023-05-15 17:20:39.799 [main] ManagerPage - Inserting customer details: first name =  , last name = Granger, postal code = 24680
-[DEBUG] 2023-05-15 17:20:40.049 [main] ManagerPage - Submitted customer details
-[DEBUG] 2023-05-15 17:20:40.066 [main] ManagerPage - Inserting customer details: first name = Vernon   , last name = Dursley, postal code = 13579
-[DEBUG] 2023-05-15 17:20:40.422 [main] ManagerPage - Submitted customer details
-[DEBUG] 2023-05-15 17:20:40.441 [main] ManagerPage - Inserting customer details: first name = Luna Lovegood, last name =           , postal code = 45678
-[DEBUG] 2023-05-15 17:20:40.737 [main] ManagerPage - Submitted customer details
+[INFO ] 2023-05-15 17:44:10.110 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-15 17:44:10.116 [main] HomePage - Clicking on customer button...
+[INFO ] 2023-05-15 17:44:10.916 [main] CustomersPage - Selected random user: Ron Weasly
+[INFO ] 2023-05-15 17:44:11.012 [main] CustomersPage - Clicked on login button.
+[INFO ] 2023-05-15 17:44:11.282 [main] CustomersPage - Read balance: 0
+[INFO ] 2023-05-15 17:44:11.316 [main] CustomersPage - Clicked on deposit button.
+[INFO ] 2023-05-15 17:44:11.619 [main] CustomersPage - Entered deposit amount: 1000
+[INFO ] 2023-05-15 17:44:11.660 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-15 17:44:11.706 [main] CustomersPage - Read balance: 1000
+[INFO ] 2023-05-15 17:44:11.707 [main] Deposit - Deposit test went as expected
+[INFO ] 2023-05-15 17:44:11.721 [main] CustomersPage - Read balance: 1000
+[INFO ] 2023-05-15 17:44:11.746 [main] CustomersPage - Clicked on deposit button.
+[INFO ] 2023-05-15 17:44:11.787 [main] CustomersPage - Entered deposit amount: -700
+[INFO ] 2023-05-15 17:44:11.817 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-15 17:44:11.859 [main] CustomersPage - Read balance: 1000
+[INFO ] 2023-05-15 17:44:11.860 [main] Deposit - Deposit test went as expected
+[INFO ] 2023-05-15 17:44:11.877 [main] CustomersPage - Read balance: 1000
+[INFO ] 2023-05-15 17:44:11.901 [main] CustomersPage - Clicked on deposit button.
+[INFO ] 2023-05-15 17:44:11.934 [main] CustomersPage - Entered deposit amount: 
+[INFO ] 2023-05-15 17:44:11.987 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-15 17:44:12.048 [main] CustomersPage - Read balance: 1000
+[INFO ] 2023-05-15 17:44:12.049 [main] Deposit - Deposit test went as expected
