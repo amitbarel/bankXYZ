@@ -1,34 +1,4 @@
-[DEBUG] 2023-05-15 19:02:29.791 [main] ManagerPage - Searching for customer details: Harry
-[INFO ] 2023-05-15 19:02:31.138 [main] SearchForCustomer - Found Customer [fName=Harry, lName=Potter, postCode=E725JB, accounts=[1004, 1005, 1006]]
-[DEBUG] 2023-05-15 19:02:31.169 [main] ManagerPage - Searching for customer details: 1003
-[INFO ] 2023-05-15 19:02:31.283 [main] SearchForCustomer - Found Customer [fName=Hermoine, lName=Granger, postCode=E859AB, accounts=[1001, 1002, 1003]]
-[DEBUG] 2023-05-15 19:02:31.315 [main] ManagerPage - Searching for customer details: Pot
-[ERROR] 2023-05-15 19:02:31.426 [main] SearchForCustomer - Test Failed, found Customer [fName=Harry, lName=Potter, postCode=E725JB, accounts=[1004, 1005, 1006]]
-[DEBUG] 2023-05-15 19:02:31.453 [main] ManagerPage - Searching for customer details:      
-[ERROR] 2023-05-15 19:02:32.238 [main] SearchForCustomer - Test Failed, found Customer [fName=Hermoine, lName=Granger, postCode=E859AB, accounts=[1001, 1002, 1003]]
-[ERROR] 2023-05-15 19:02:32.238 [main] SearchForCustomer - Test Failed, found Customer [fName=Harry, lName=Potter, postCode=E725JB, accounts=[1004, 1005, 1006]]
-[ERROR] 2023-05-15 19:02:32.238 [main] SearchForCustomer - Test Failed, found Customer [fName=Ron, lName=Weasly, postCode=E55555, accounts=[1007, 1008, 1009]]
-[ERROR] 2023-05-15 19:02:32.238 [main] SearchForCustomer - Test Failed, found Customer [fName=Albus, lName=Dumbledore, postCode=E55656, accounts=[1010, 1011, 1012]]
-[ERROR] 2023-05-15 19:02:32.238 [main] SearchForCustomer - Test Failed, found Customer [fName=Neville, lName=Longbottom, postCode=E89898, accounts=[1013, 1014, 1015]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Hermoine, lName=Granger, postCode=E859AB, accounts=[1001, 1002, 1003]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Harry, lName=Potter, postCode=E725JB, accounts=[1004, 1005, 1006]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Ron, lName=Weasly, postCode=E55555, accounts=[1007, 1008, 1009]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Albus, lName=Dumbledore, postCode=E55656, accounts=[1010, 1011, 1012]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Neville, lName=Longbottom, postCode=E89898, accounts=[1013, 1014, 1015]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Hermoine, lName=Granger, postCode=E859AB, accounts=[1001, 1002, 1003]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Harry, lName=Potter, postCode=E725JB, accounts=[1004, 1005, 1006]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Ron, lName=Weasly, postCode=E55555, accounts=[1007, 1008, 1009]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Albus, lName=Dumbledore, postCode=E55656, accounts=[1010, 1011, 1012]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Neville, lName=Longbottom, postCode=E89898, accounts=[1013, 1014, 1015]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Hermoine, lName=Granger, postCode=E859AB, accounts=[1001, 1002, 1003]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Harry, lName=Potter, postCode=E725JB, accounts=[1004, 1005, 1006]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Ron, lName=Weasly, postCode=E55555, accounts=[1007, 1008, 1009]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Albus, lName=Dumbledore, postCode=E55656, accounts=[1010, 1011, 1012]]
-[ERROR] 2023-05-15 19:02:32.239 [main] SearchForCustomer - Test Failed, found Customer [fName=Neville, lName=Longbottom, postCode=E89898, accounts=[1013, 1014, 1015]]
-[ERROR] 2023-05-15 19:02:32.240 [main] SearchForCustomer - Test Failed, found Customer [fName=Hermoine, lName=Granger, postCode=E859AB, accounts=[1001, 1002, 1003]]
-[ERROR] 2023-05-15 19:02:32.240 [main] SearchForCustomer - Test Failed, found Customer [fName=Harry, lName=Potter, postCode=E725JB, accounts=[1004, 1005, 1006]]
-[ERROR] 2023-05-15 19:02:32.240 [main] SearchForCustomer - Test Failed, found Customer [fName=Ron, lName=Weasly, postCode=E55555, accounts=[1007, 1008, 1009]]
-[ERROR] 2023-05-15 19:02:32.240 [main] SearchForCustomer - Test Failed, found Customer [fName=Albus, lName=Dumbledore, postCode=E55656, accounts=[1010, 1011, 1012]]
-[ERROR] 2023-05-15 19:02:32.240 [main] SearchForCustomer - Test Failed, found Customer [fName=Neville, lName=Longbottom, postCode=E89898, accounts=[1013, 1014, 1015]]
-[DEBUG] 2023-05-15 19:02:32.265 [main] ManagerPage - Searching for customer details:     Ro
-[ERROR] 2023-05-15 19:02:32.375 [main] SearchForCustomer - Test Failed, found Customer [fName=Ron, lName=Weasly, postCode=E55555, accounts=[1007, 1008, 1009]]
+[INFO ] 2023-05-16 23:24:40.263 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-16 23:24:40.274 [main] HomePage - Clicking on customer button...
+[INFO ] 2023-05-16 23:24:41.698 [main] CustomersPage - Selected random user: Harry Potter
+[INFO ] 2023-05-16 23:24:41.849 [main] CustomersPage - Clicked on login button.

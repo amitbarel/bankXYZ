@@ -20,7 +20,7 @@ public class Login {
 
 	@After
 	public void tearDown() {
-		// driver.quit();
+		 driver.quit();
 	}
 
 	@Before
