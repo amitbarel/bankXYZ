@@ -25,7 +25,7 @@ public class Deposit {
 
 	@After
 	public void tearDown() {
-		// driver.quit();
+		 driver.quit();
 	}
 
 	@Before

@@ -1,9 +1,0 @@
-------- Accesability Test -------
-The test is operated on Chrome 113.0.0.0
-On 17/5/2023 17:50:2
-And produced 5errors:
-Error type 1: The html element should have a lang or xml:lang attribute which describes the language of the document.
-Error type 1: This select element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.
-Error type 1: This form field should be labelled in some way. Use the label element (either with a "for" attribute or wrapped around the form field), or "title", "aria-label" or "aria-labelledby" attributes as appropriate.
-Error type 1: Duplicate id attribute value "notch" found on the web page.
-Error type 1: Duplicate id attribute value "notch" found on the web page.

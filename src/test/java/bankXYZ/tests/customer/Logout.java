@@ -20,7 +20,7 @@ public class Logout {
 
 	@After
 	public void tearDown() {
-		// driver.quit();
+		 driver.quit();
 	}
 
 	@Before
@@ -33,14 +33,14 @@ public class Logout {
 	@Test
 	public void logOutFromSystem() {
 		driver.get(Helper.BASE_URL.concat("login"));
-		HomePage hPage = new HomePage(driver, helper);
-		CustomersPage cPage = new CustomersPage(driver, helper);
-		hPage.clickCustomer();
+		HomePage homePage = new HomePage(driver, helper);
+		CustomersPage customersPage = new CustomersPage(driver, helper);
+		homePage.clickCustomer();
 		helper.driverWait(Helper.DELAY_MEDIUM);
-		String name = cPage.getRandomUser();
-		cPage.chooseNameFromList(name);
+		String name = customersPage.getRandomUser();
+		customersPage.chooseNameFromList(name);
 		helper.driverWait(Helper.DELAY_BIG);
-		cPage.logOut();
+		customersPage.logOut();
 		if (driver.getCurrentUrl().equals(Helper.BASE_URL.concat("customer"))) {
 			logger.info("Logging out succeed");
 		} else {

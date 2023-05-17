@@ -23,7 +23,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class NonDefaultAccesabiltyStandart {
+public class AccessibilityStandart {
 
 	private WebDriver driver;
 	private static HtmlCsRunner htmlCsRunner;
@@ -93,12 +93,12 @@ public class NonDefaultAccesabiltyStandart {
 
 	@Test
 	public void accesabilityTest() {
-		HomePage hPage = new HomePage(driver, helper);
-		CustomersPage cPage = new CustomersPage(driver, helper);
+		HomePage homePage = new HomePage(driver, helper);
+		CustomersPage customersPage = new CustomersPage(driver, helper);
 		driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
-		hPage.clickCustomer();
-		String user = cPage.getRandomUser();
-		cPage.chooseNameFromList(user);
+		homePage.clickCustomer();
+		String user = customersPage.getRandomUser();
+		customersPage.chooseNameFromList(user);
 	}
 
 }

@@ -33,13 +33,13 @@ public class Login {
 	@Test
 	public void logInToSystem() {
 		driver.get(Helper.BASE_URL.concat("login"));
-		HomePage hPage = new HomePage(driver, helper);
-		CustomersPage cPage = new CustomersPage(driver, helper);
-		hPage.clickCustomer();
+		HomePage homePage = new HomePage(driver, helper);
+		CustomersPage customerPage = new CustomersPage(driver, helper);
+		homePage.clickCustomer();
 		helper.driverWait(Helper.DELAY_MEDIUM);
-		String name = cPage.getRandomUser();
-		cPage.chooseNameFromList(name);
-		if (cPage.verifyLogin(name)) {
+		String name = customerPage.getRandomUser();
+		customerPage.chooseNameFromList(name);
+		if (customerPage.verifyLogin(name)) {
 			logger.info("Succeed");
 		} else {
 			logger.error("Failed");
