@@ -14,6 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import bankXYZ.pages.CustomersPage;
 import bankXYZ.pages.HomePage;
 import utils.Helper;
+import utils.JSONPaths;
 import utils.JSONUtils;
 
 public class Deposit {
@@ -37,7 +38,7 @@ public class Deposit {
 	@Test
 	public void depositMoneyToAccount() {
 		JSONArray jArray = (JSONArray) JSONUtils
-				.getDetailsFromJson(".\\src\\main\\resources\\JSONs\\deposit_money_to_account.json").get("testCases");
+				.getDetailsFromJson(JSONPaths.DEPOSIT_MONEY_TO_ACCOUNT).get("testCases");
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage homePage = new HomePage(driver, helper);
 		CustomersPage customerPage = new CustomersPage(driver, helper);

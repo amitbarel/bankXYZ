@@ -17,6 +17,7 @@ import bankXYZ.pages.HomePage;
 import bankXYZ.pages.ManagerPage;
 import utils.Customer;
 import utils.Helper;
+import utils.JSONPaths;
 import utils.JSONUtils;
 
 public class SearchForCustomer {
@@ -39,7 +40,7 @@ public class SearchForCustomer {
 	@Test
 	public void searchForCustomerDetails() {
 		JSONArray jArray = (JSONArray) JSONUtils
-				.getDetailsFromJson(".\\src\\main\\resources\\JSONs\\search_for_customer_details.json").get("testCases");
+				.getDetailsFromJson(JSONPaths.SEARCH_FOR_CUSTOMER_DETAILS).get("testCases");
 		ArrayList<Customer> customers;
 		driver.get(Helper.BASE_URL.concat("manager/list"));
 		ManagerPage managerPage = new ManagerPage(driver, helper);

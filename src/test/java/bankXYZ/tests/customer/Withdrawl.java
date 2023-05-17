@@ -16,6 +16,7 @@ import bankXYZ.pages.CustomersPage;
 import bankXYZ.pages.HomePage;
 import bankXYZ.pages.ManagerPage;
 import utils.Helper;
+import utils.JSONPaths;
 import utils.JSONUtils;
 
 public class Withdrawl {
@@ -38,7 +39,7 @@ public class Withdrawl {
 	@Test
 	public void withdrawMoneyFromAccount() {
 		JSONArray jArray = (JSONArray) JSONUtils
-				.getDetailsFromJson(".\\src\\main\\resources\\JSONs\\withdrawl_money_from_account.json")
+				.getDetailsFromJson(JSONPaths.WITHDRAWL_MONEY_FROM_ACCOUNT)
 				.get("testCases");
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage homePage = new HomePage(driver, helper);

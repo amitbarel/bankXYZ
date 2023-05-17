@@ -16,6 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import bankXYZ.pages.HomePage;
 import bankXYZ.pages.ManagerPage;
 import utils.Helper;
+import utils.JSONPaths;
 import utils.JSONUtils;
 
 public class NewAccount {
@@ -39,7 +40,7 @@ public class NewAccount {
 	@Test
 	public void openNewAccountForCustomer() {
 		JSONArray jArray = (JSONArray) JSONUtils
-				.getDetailsFromJson(".\\src\\main\\resources\\JSONs\\open_new_account_for_customer.json").get("testCases");
+				.getDetailsFromJson(JSONPaths.OPEN_NEW_ACCOUNT_FOR_CUSTOMER).get("testCases");
 		driver.get(Helper.BASE_URL.concat("login"));
 		HomePage homePage = new HomePage(driver, helper);
 		ManagerPage managerPage = new ManagerPage(driver, helper);

@@ -1,4 +1,72 @@
-[INFO ] 2023-05-16 23:24:40.263 [main] HomePage - Waiting for driver...
-[INFO ] 2023-05-16 23:24:40.274 [main] HomePage - Clicking on customer button...
-[INFO ] 2023-05-16 23:24:41.698 [main] CustomersPage - Selected random user: Harry Potter
-[INFO ] 2023-05-16 23:24:41.849 [main] CustomersPage - Clicked on login button.
+[INFO ] 2023-05-17 09:17:17.565 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:17.572 [main] HomePage - Clicking on manager button...
+[DEBUG] 2023-05-17 09:17:17.697 [main] ManagerPage - Clicking add customer button
+[DEBUG] 2023-05-17 09:17:18.172 [main] ManagerPage - Inserting customer details: first name = Avi, last name = Cohen, postal code = 1A2S2D3
+[DEBUG] 2023-05-17 09:17:18.739 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-17 09:17:18.754 [main] ManagerPage - Clicking open account button
+[INFO ] 2023-05-17 09:17:19.318 [main] ManagerPage - Selected customer: Avi Cohen
+[INFO ] 2023-05-17 09:17:19.499 [main] ManagerPage - Clicked Submit button
+[INFO ] 2023-05-17 09:17:19.561 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:19.564 [main] HomePage - Clicking on customer button...
+[INFO ] 2023-05-17 09:17:20.128 [main] CustomersPage - Clicked on login button.
+[INFO ] 2023-05-17 09:17:20.425 [main] CustomersPage - Clicked on deposit button.
+[INFO ] 2023-05-17 09:17:20.732 [main] CustomersPage - Entered deposit amount: 350
+[INFO ] 2023-05-17 09:17:20.786 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:20.927 [main] CustomersPage - Clicked on withdraw button.
+[INFO ] 2023-05-17 09:17:20.999 [main] CustomersPage - Entered withdrawal amount: 100
+[INFO ] 2023-05-17 09:17:21.045 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:21.086 [main] CustomersPage - Read balance: 450
+[INFO ] 2023-05-17 09:17:21.178 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:21.183 [main] HomePage - Clicking on manager button...
+[DEBUG] 2023-05-17 09:17:21.245 [main] ManagerPage - Clicking add customer button
+[DEBUG] 2023-05-17 09:17:21.299 [main] ManagerPage - Inserting customer details: first name = Yossi, last name = Levi, postal code = 9B6S3D2
+[DEBUG] 2023-05-17 09:17:21.595 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-17 09:17:21.602 [main] ManagerPage - Clicking open account button
+[INFO ] 2023-05-17 09:17:21.746 [main] ManagerPage - Selected customer: Yossi Levi
+[INFO ] 2023-05-17 09:17:22.005 [main] ManagerPage - Clicked Submit button
+[INFO ] 2023-05-17 09:17:22.073 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:22.077 [main] HomePage - Clicking on customer button...
+[INFO ] 2023-05-17 09:17:22.375 [main] CustomersPage - Clicked on login button.
+[INFO ] 2023-05-17 09:17:22.432 [main] CustomersPage - Clicked on deposit button.
+[INFO ] 2023-05-17 09:17:22.478 [main] CustomersPage - Entered deposit amount: 350
+[INFO ] 2023-05-17 09:17:22.518 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:22.636 [main] CustomersPage - Clicked on withdraw button.
+[INFO ] 2023-05-17 09:17:22.706 [main] CustomersPage - Entered withdrawal amount: 700
+[INFO ] 2023-05-17 09:17:22.750 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:22.774 [main] CustomersPage - Read balance: 350
+[INFO ] 2023-05-17 09:17:22.839 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:22.842 [main] HomePage - Clicking on manager button...
+[DEBUG] 2023-05-17 09:17:22.915 [main] ManagerPage - Clicking add customer button
+[DEBUG] 2023-05-17 09:17:22.991 [main] ManagerPage - Inserting customer details: first name = Moshe, last name = Moshe, postal code = 2A2E4D3
+[DEBUG] 2023-05-17 09:17:23.216 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-17 09:17:23.223 [main] ManagerPage - Clicking open account button
+[INFO ] 2023-05-17 09:17:23.371 [main] ManagerPage - Selected customer: Moshe Moshe
+[INFO ] 2023-05-17 09:17:23.552 [main] ManagerPage - Clicked Submit button
+[INFO ] 2023-05-17 09:17:23.621 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:23.623 [main] HomePage - Clicking on customer button...
+[INFO ] 2023-05-17 09:17:23.770 [main] CustomersPage - Clicked on login button.
+[INFO ] 2023-05-17 09:17:23.820 [main] CustomersPage - Clicked on deposit button.
+[INFO ] 2023-05-17 09:17:23.912 [main] CustomersPage - Entered deposit amount: 350
+[INFO ] 2023-05-17 09:17:24.011 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:24.121 [main] CustomersPage - Clicked on withdraw button.
+[INFO ] 2023-05-17 09:17:24.164 [main] CustomersPage - Entered withdrawal amount: -500
+[INFO ] 2023-05-17 09:17:24.199 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:24.216 [main] CustomersPage - Read balance: 350
+[INFO ] 2023-05-17 09:17:24.263 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:24.265 [main] HomePage - Clicking on manager button...
+[DEBUG] 2023-05-17 09:17:24.353 [main] ManagerPage - Clicking add customer button
+[DEBUG] 2023-05-17 09:17:24.413 [main] ManagerPage - Inserting customer details: first name = Benny, last name = Cohen, postal code = 2A2E0W3
+[DEBUG] 2023-05-17 09:17:24.668 [main] ManagerPage - Submitted customer details
+[DEBUG] 2023-05-17 09:17:24.675 [main] ManagerPage - Clicking open account button
+[INFO ] 2023-05-17 09:17:24.805 [main] ManagerPage - Selected customer: Benny Cohen
+[INFO ] 2023-05-17 09:17:25.124 [main] ManagerPage - Clicked Submit button
+[INFO ] 2023-05-17 09:17:25.232 [main] HomePage - Waiting for driver...
+[INFO ] 2023-05-17 09:17:25.235 [main] HomePage - Clicking on customer button...
+[INFO ] 2023-05-17 09:17:25.610 [main] CustomersPage - Clicked on login button.
+[INFO ] 2023-05-17 09:17:25.715 [main] CustomersPage - Clicked on deposit button.
+[INFO ] 2023-05-17 09:17:25.794 [main] CustomersPage - Entered deposit amount: 350
+[INFO ] 2023-05-17 09:17:25.843 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:25.909 [main] CustomersPage - Clicked on withdraw button.
+[INFO ] 2023-05-17 09:17:25.981 [main] CustomersPage - Entered withdrawal amount: 
+[INFO ] 2023-05-17 09:17:26.052 [main] CustomersPage - Clicked on submit button.
+[INFO ] 2023-05-17 09:17:26.077 [main] CustomersPage - Read balance: 350
