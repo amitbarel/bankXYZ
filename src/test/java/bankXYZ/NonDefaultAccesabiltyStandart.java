@@ -1,26 +1,22 @@
-package utils;
+package bankXYZ;
 
 import freemarker.template.TemplateException;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.sridharbandi.AxeRunner;
 import io.github.sridharbandi.HtmlCsRunner;
 import io.github.sridharbandi.a11y.HTMLCS;
-
+import utils.Helper;
 import org.apache.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import bankXYZ.pages.CustomersPage;
 import bankXYZ.pages.HomePage;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.io.File;
@@ -67,28 +63,29 @@ public class NonDefaultAccesabiltyStandart {
 		File directory = new File(directoryPath);
 		File[] files = directory.listFiles();
 		JSONParser jsonParser = new JSONParser();
-		detailsStr.concat("------- Accesability Test -------\n");
+		detailsStr += "------- Accessibility Test -------\n";
+		System.out.println(detailsStr);
 		try {
 			Object obj = jsonParser.parse(new FileReader(files[0].getPath()));
 			JSONObject jsonObject = (JSONObject) obj;
 			String browser = (String) jsonObject.get("browser");
-			detailsStr.concat("The test is operated on " + browser + "\n");
+			detailsStr += "The test is operated on " + browser + "\n";
 			String date = (String) jsonObject.get("date");
-			detailsStr.concat("On " + date + "\n");
+			detailsStr += "On " + date + "\n";
 			Long errors = (Long) jsonObject.get("errors");
-			detailsStr.concat("And produced " + errors + "errors:\n");
+			detailsStr += "And produced " + errors + " errors:\n";
 			JSONArray resultsArray = (JSONArray) jsonObject.get("results");
 			for (int i = 0; i < resultsArray.size(); i++) {
 				JSONObject res = (JSONObject) resultsArray.get(i);
 				Long type = (Long) res.get("type");
 				if (type == 1) { // 1 is for error
 					String message = (String) res.get("msg");
-					detailsStr.concat("Error type " + type + ": " + message + "\n");
-					FileWriter writer = new FileWriter(".\\Logs\\AccesabilityResults.txt");
-		            writer.write(detailsStr);
-		            writer.close();
+					detailsStr += "Error type " + type + ": " + message + "\n";
 				}
 			}
+			FileWriter writer = new FileWriter(".\\Logs\\AccessibilityResults.txt");
+			writer.write(detailsStr);
+			writer.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

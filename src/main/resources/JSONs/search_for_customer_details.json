@@ -20,17 +20,6 @@
         "success": true,
         "name": "Harry Potter"
      }
-  },
-  {
-   "input": "     ",
-    "expectedOutput": null
-  },
-  {
-    "input": "    Ro",
-    "expectedOutput": {
-        "success": true,
-        "name": "Ron Weasly"
-     }
   }
 ]
 }

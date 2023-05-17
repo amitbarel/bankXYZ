@@ -45,7 +45,7 @@ public class SearchForCustomer {
 		driver.get(Helper.BASE_URL.concat("manager/list"));
 		ManagerPage managerPage = new ManagerPage(driver, helper);
 		for (int i = 0; i < jArray.size(); i++) {
-			helper.driverWait(Helper.DELAY_MEDIUM);
+			helper.driverWait(Helper.DELAY_SMALL);
 			JSONObject test = (JSONObject)jArray.get(i);
 			String input = (String)test.get("input");
 			managerPage.searchDetails(input);
@@ -53,9 +53,9 @@ public class SearchForCustomer {
 			customers = managerPage.getCustomersFromTable();
 			for (Customer c : customers) {
 				if(!c.isSubstringExists(input)) {
-					logger.error("Test Failed, found ".concat(c.toString()));
+					logger.error("Failed, found ".concat(c.toString()));
 				}else {
-					logger.info("Found ".concat(c.toString()));
+					logger.info("Found ".concat(c.toString()).concat(" which has " + input + " in his details"));
 				}
 			}
 			managerPage.clearSearchCustomerInput();
